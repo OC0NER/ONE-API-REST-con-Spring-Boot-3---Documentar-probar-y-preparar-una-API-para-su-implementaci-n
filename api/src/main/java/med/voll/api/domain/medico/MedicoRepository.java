@@ -8,7 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 import java.time.LocalDateTime;
 
 public interface MedicoRepository extends JpaRepository<Medico, Long> {
-    Page<Medico> findAllByActivoTrue(Pageable paginacion);
+    Page<Medico> findByActivoTrue(Pageable paginacion);
 
     @Query("""
         select m from Medico m

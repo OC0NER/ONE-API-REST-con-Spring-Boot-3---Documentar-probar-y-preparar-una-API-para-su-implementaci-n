@@ -13,8 +13,8 @@ public class MedicoSinConsulta implements ValidadorDeConsultas {
     private ConsultaRepository consultaRepository;
 
     public void validar(DatosAgendarConsulta datos) {
-        var unaHoraAntes = datos.fecha().minusHours(1);
-        var unaHoraDespues = datos.fecha().plusHours(1);
+        var unaHoraAntes = datos.fecha().minusMinutes(59);
+        var unaHoraDespues = datos.fecha().plusMinutes(59);
 
         var medicoConConsulta = consultaRepository.existsByMedicoIdAndFechaBetween(datos.idMedico(), unaHoraAntes, unaHoraDespues);
 
